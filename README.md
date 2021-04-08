@@ -22,9 +22,13 @@ SampleScanner is a command-line tool to turn MIDI instruments (usually hardware)
 Requires a working `python3`, `pip`, and `ffmpeg` to be installed on the system.
 
 ```
-git clone git@github.com:psobot/SampleScanner
-cd SampleScanner
 pip install -r requirements.txt
+```
+
+Or you can drop into a Nix shell and run it from there:
+
+```
+nix-shell
 ```
 
 ## How to run

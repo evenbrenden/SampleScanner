@@ -9,7 +9,8 @@ import wave
 
 CHUNK_SIZE = 1024
 NUM_CHANNELS = 2
-FORMAT = pyaudio.paInt16 if bit_depth == 16 else pyaudio.paInt24
+PA_FORMAT = pyaudio.paInt16 if bit_depth == 16 else pyaudio.paInt32
+FORMAT_CHAR = 'h' if bit_depth == 16 else 'i'
 
 if not sys.platform == "win32":
     GO_UP = "\033[F"
@@ -87,7 +88,7 @@ def record(
     input_device_index = get_input_device_index(p, audio_interface_name)
 
     stream = p.open(
-        format=FORMAT,
+        format=PA_FORMAT,
         channels=NUM_CHANNELS,
         rate=sample_rate,
         input=True,
@@ -216,7 +217,7 @@ def record(
     for chunk in data:
         r = numpy.concatenate((r, chunk), axis=1)
 
-    sample_width = p.get_sample_size(FORMAT)
+    sample_width = p.get_sample_size(PA_FORMAT)
     stream.stop_stream()
     stream.close()
     p.terminate()
@@ -258,7 +259,7 @@ def save_to_file(path, sample_width, data, sample_rate=SAMPLE_RATE):
     write_chunk_size = 512
     for chunk_start in range(0, len(flattened), write_chunk_size):
         chunk = flattened[chunk_start:chunk_start + write_chunk_size]
-        packstring = '<' + ('h' * len(chunk))
+        packstring = '<' + (FORMAT_CHAR * len(chunk))
         wf.writeframes(pack(packstring, *chunk))
     wf.close()
 

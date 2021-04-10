@@ -16,6 +16,7 @@ SampleScanner is a command-line tool to turn MIDI instruments (usually hardware)
  - Clipping detection at sample time
  - 100% Python to enable cross-platform compatibility
  - Has been known to work in Windows, Mac OS and Linux
+ - Currently 32-bit recording only (must be supported by audio interface)
 
 ## Installation
 

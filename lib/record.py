@@ -248,6 +248,7 @@ def record_to_file(
         return None
 
 
+# TODO: WAVE files with bit depths above 16 should have WAVEX format
 def save_to_file(path, sample_width, data, sample_rate=SAMPLE_RATE):
     wf = wave.open(path, 'wb')
     wf.setnchannels(NUM_CHANNELS)

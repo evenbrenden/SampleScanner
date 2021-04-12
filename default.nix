@@ -12,6 +12,7 @@ let
     ps.tabulate
     ps.autopep8
     ps.pep8
+    ps.pytest
   ]);
 in mkShell {
   buildInputs = [

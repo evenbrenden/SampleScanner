@@ -32,7 +32,7 @@ def expected_license():
 
 
 def test_readme_contains_proper_command_line_output():
-    assert command_line_output_in_readme() == expected_command_line_output()
+    assert command_line_output_in_readme() == expected_command_line_output().decode()
 
 
 def test_readme_contains_content_of_license():

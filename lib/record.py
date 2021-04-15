@@ -248,7 +248,11 @@ def record_to_file(
         return None
 
 
-# TODO: WAVE files with bit depths above 16 should have WAVEX format
+# TODO: WAVE files with bit depths above 16 should have WAVEX format:
+# https://flac-dev.xiph.narkive.com/tutNgji5/warning-that-legacy-wave-file-has-format-type-1-but-bits-per-sample-is-24
+#
+# It's unambiguous and harmless (with any parser I tried). Need
+# https://github.com/python/cpython/pull/9515 to do this.
 def save_to_file(path, sample_width, data, sample_rate=SAMPLE_RATE):
     wf = wave.open(path, 'wb')
     wf.setnchannels(NUM_CHANNELS)

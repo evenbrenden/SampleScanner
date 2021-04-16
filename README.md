@@ -1,5 +1,4 @@
 # SampleScanner
-[![Build Status](https://travis-ci.org/psobot/SampleScanner.svg?branch=master)](https://travis-ci.org/psobot/SampleScanner)
 
 ![SampleScanner Logo](https://cloud.githubusercontent.com/assets/213293/24964018/1dcb4092-1f6e-11e7-8b3b-47704e6c8aeb.png)
 

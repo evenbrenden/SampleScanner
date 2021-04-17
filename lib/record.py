@@ -248,13 +248,8 @@ def record_to_file(
         return None
 
 
-# TODO: WAVE files with bit depths above 16 should have extensible
-# format:
+# TODO: WAVE files with bit depths > 16 should use extensible format:
 # http://www-mmsp.ece.mcgill.ca/Documents/AudioFormats/WAVE/WAVE.html
-#
-# Need https://github.com/python/cpython/pull/9515 to do this. Having
-# said that, AFAIK the metadata is unambiguous (flac will issue a
-# warning) and I have yet to find a parser that has a problem with it.
 def save_to_file(path, sample_width, data, sample_rate=SAMPLE_RATE):
     wf = wave.open(path, 'wb')
     wf.setnchannels(NUM_CHANNELS)

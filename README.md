@@ -25,12 +25,6 @@ Requires a working `python3`, `pip`, and `ffmpeg` to be installed on the system.
 pip install -r requirements.txt
 ```
 
-Or you can drop into a Nix shell and run it from there:
-
-```
-nix-shell
-```
-
 ## How to run
 
 Run `./samplescanner -h` for a full argument listing:
